@@ -160,17 +160,6 @@ ALLOW/BLOCK decision
 Attack simulation mode
 Deployment Screenshots
 
-Add the dashboard screenshots here:
-
-dashboard/
-
-Recommended screenshots:
-
-Normal traffic monitoring
-Attack detected and blocked
-Risk activity graph
-Attack simulation
-
 ## Project Structure
 ```
 ML-IDS/
