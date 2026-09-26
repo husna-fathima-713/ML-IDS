@@ -143,3 +143,132 @@ Security Analyst
 Feedback
       ↓
 Model Retraining
+```
+---
+
+## Dashboard
+
+The deployment dashboard provides:
+
+Live event monitoring
+Risk activity graph
+Threat-level indicator
+Risk score gauge
+Traffic decision pipeline
+Attack/Normal classification
+ALLOW/BLOCK decision
+Attack simulation mode
+Deployment Screenshots
+
+Add the dashboard screenshots here:
+
+dashboard/
+
+Recommended screenshots:
+
+Normal traffic monitoring
+Attack detected and blocked
+Risk activity graph
+Attack simulation
+
+## Project Structure
+```
+ML-IDS/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── dashboard/
+│   └── index.html
+│
+├── notebooks/
+│
+├── report/
+│
+├── results/
+│   ├── model/
+│   ├── confusion_matrices.png
+│   ├── threshold_tradeoff.png
+│   ├── architecture.png
+│   ├── model_metrics.csv
+│   └── final_model_comparison.csv
+│
+├── src/
+│   ├── load_data.py
+│   ├── preprocess.py
+│   ├── train_models.py
+│   ├── evaluate_models.py
+│   ├── threshold_analysis.py
+│   ├── unseen_attack_test.py
+│   ├── final_results.py
+│   ├── create_architecture.py
+│   ├── save_model.py
+│   ├── api.py
+│   └── test_api.py
+│
+├── .gitignore
+└── README.md
+```
+---
+## Running the Project
+
+1. Activate the virtual environment
+```
+source .venv/bin/activate
+```
+3. Start the FastAPI backend
+```
+python -m uvicorn src.api:app --reload
+```
+The API runs at:
+```
+http://127.0.0.1:8000
+```
+3. Start the dashboard
+
+In another terminal:
+```
+python -m http.server 5500 --directory dashboard
+```
+Open:
+```
+http://127.0.0.1:5500
+```
+---
+## Technologies Used
+
+Python
+Pandas
+NumPy
+Scikit-learn
+FastAPI
+Uvicorn
+Joblib
+HTML
+CSS
+JavaScript
+NSL-KDD Dataset
+
+---
+## Limitations
+
+The current implementation is a deployment prototype. Network traffic is simulated through the dashboard rather than captured directly from a physical network interface.
+
+The BLOCK decision is an ML classification result and is not connected to a real firewall.
+
+Future development could integrate:
+
+Live packet/flow capture
+Network interface monitoring
+Firewall enforcement
+Persistent alert storage
+Authentication
+Production monitoring
+Continuous model retraining
+Additional unseen-attack datasets
+Conclusion
+
+This project demonstrates an end-to-end machine learning intrusion detection pipeline, from network traffic preprocessing and model evaluation to API-based deployment and dashboard visualization.
+
+The experiments also show that high performance on known attack categories does not guarantee generalization to unseen attacks, highlighting the importance of continuous evaluation and model improvement in practical intrusion detection systems.
